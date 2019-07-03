@@ -16,31 +16,32 @@ if(! class_exists('Azad_Public')){
         public function azad_footer(){ 
             $instance = call_user_func(array(get_class($GLOBALS['azad_admin']),'_get_instance'));
 
-            $color = $instance->azad_nice_scroll_get_plugin_settings('color');
+            $cursor_color = $instance->azad_nice_scroll_get_plugin_settings('cursor_color');
             $cursor_width = $instance->azad_nice_scroll_get_plugin_settings('cursor_width');
             $background = $instance->azad_nice_scroll_get_plugin_settings('bg_color');
             $scroll_speed = $instance->azad_nice_scroll_get_plugin_settings('background');
+            $cursor_border_radius = $instance->azad_nice_scroll_get_plugin_settings('cursor_border_radius');
         ?>
             <script type="text/javascript">
                 (function($){
                     $(document).ready(
                         function(){
                             $("html").niceScroll({
-                                cursorcolor: '<?php echo $color; ?>',
+                                cursorcolor: '<?php echo $cursor_color; ?>',
                                 cursorwidth: '<?php echo $cursor_width; ?>px',
-                                cursorborderradius: "5px",
-                                scrollspeed: 40,
-                                autohidemode: true,
+                                cursorborderradius: '<?php echo $cursor_border_radius; ?>px',
+                                // scrollspeed: 40,
+                                //autohidemode: false,
                                 background: '<?php echo $background; ?>',
-                                hidecursordelay: '400',
-                                cursorfixedheight: false,
-                                cursorminheight: '20',
-                                enablekeyboard: 'true',
-                                horizrailenabled: 'true',
-                                bouncescroll: 'false',
-                                smoothscroll: 'true',
-                                iframeautoresize: 'true',
-                                touchbehavior: false,
+                                // hidecursordelay: '400',
+                                // cursorfixedheight: false,
+                                // cursorminheight: '20',
+                                // enablekeyboard: 'true',
+                                // horizrailenabled: 'true',
+                                // bouncescroll: 'false',
+                                // smoothscroll: 'true',
+                                // iframeautoresize: 'true',
+                                // touchbehavior: false
                             });
                         }
                     );

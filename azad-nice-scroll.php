@@ -32,7 +32,7 @@ if(! class_exists('Azad_Nice_Scroll')){
         }
         public function azad_admin(){}
         public function azad_admin_acripts(){
-            wp_register_style('azad-nice-scroll-admin',plugins_url('sadmin/css/azad-nice-scroll-admin.css',dirname(__FILE__)),array('wp-color-picker'),'0.0.0.1','all');
+            wp_register_style('azad-nice-scroll-admin',plugins_url('admin/css/azad-nice-scroll-admin.css',dirname(__FILE__)),array('wp-color-picker'),'0.0.0.1','all');
             wp_enqueue_style('azad-nice-scroll-admin');
             
             wp_register_script( 'azad-nice-scroll-color', plugins_url( 'admin/js/azad_color.js', __FILE__ ), array('wp-color-picker'), 1.0, true );

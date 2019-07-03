@@ -31,7 +31,7 @@ if(! class_exists('Azad_Admin')){
             );
             add_settings_field(
                 'azad_nice_scroll_color',
-                esc_html('Color :','azad-nice-scroll'),
+                esc_html('Cursor Color :','azad-nice-scroll'),
                 array($this,'azad_nice_scroll_color_field'),
                 'azad_nice_scroll_settings_page',
                 'azad_nice_scroll_general_settings'
@@ -45,36 +45,43 @@ if(! class_exists('Azad_Admin')){
             );
             add_settings_field(
                 'azad_nice_scroll_cursor_width',
-                esc_html('Background Color :','azad-nice-scroll'),
+                esc_html('Cursor Width :','azad-nice-scroll'),
                 array($this,'azad_nice_scroll_cursor_width_field'),
                 'azad_nice_scroll_settings_page',
                 'azad_nice_scroll_general_settings'
             );
             add_settings_field(
-                'azad_nice_scroll_hide_cursor_delay',
-                esc_html('Hide Cursor Delay :','azad-nice-scroll'),
-                array($this,'azad_nice_scroll_hide_cursor_delay_field'),
+                'azad_nice_scroll_cursor_border_radius',
+                esc_html('Cursor Border Radius :','azad-nice-scroll'),
+                array($this,'azad_nice_scroll_cursor_border_radius_field'),
                 'azad_nice_scroll_settings_page',
                 'azad_nice_scroll_general_settings'
             );
+            // add_settings_field(
+            //     'azad_nice_scroll_hide_cursor_delay',
+            //     esc_html('Hide Cursor Delay :','azad-nice-scroll'),
+            //     array($this,'azad_nice_scroll_hide_cursor_delay_field'),
+            //     'azad_nice_scroll_settings_page',
+            //     'azad_nice_scroll_general_settings'
+            // );
         }
         public function azad_nice_scroll_default_settings(){ 
             $default_settings = array(
-                'cursor_color'          => '#000000',
-                'cursor_width'           => '6px',
-                'cursor_border_radius'  => '5px',
-                'scroll_speed'          => 40,
-                'auto_hide_mode'        => true,
-                'bg_color'              => '#000000',
-                'hide_cursor_delay'     => 400,
-                'cursor_fixed_height'   => false,
-                'cursor_min_height'     => 20,
-                'enable_keyboard'       => true,
-                'horizrailenabled'      => true,
-                'bounce_scroll'         => false,
-                'smooth_scroll'         => true,
-                'iframe_auto_resize'    => true,
-                'touch_behavior'        => false
+                'cursor_color'          => '#8224e3',
+                'cursor_width'          => '6',
+                'cursor_border_radius'  => '5',
+                //'scroll_speed'          => 40,
+                //'auto_hide_mode'        => true,
+                'bg_color'              => '#1e73be',
+                //'hide_cursor_delay'     => 400,
+                //'cursor_fixed_height'   => false,
+                //'cursor_min_height'     => 20,
+                //'enable_keyboard'       => true,
+                //'horizrailenabled'      => true,
+                //'bounce_scroll'         => false,
+                //'smooth_scroll'         => true,
+                //'iframe_auto_resize'    => true,
+                //'touch_behavior'        => false
             );
             return apply_filters('azad_nice_scroll_default_settings', $default_settings);
         }
@@ -83,9 +90,9 @@ if(! class_exists('Azad_Admin')){
             return  $settings[$option];
         }
         public function azad_nice_scroll_color_field(){ 
-            $settings = $this->azad_nice_scroll_get_plugin_settings('color');
+            $settings = $this->azad_nice_scroll_get_plugin_settings('cursor_color');
         ?>
-            <input class="azad_color" type="text" name="azad_nice_scroll_plugin_settings[color]" value="<?php echo $settings; ?>"/>
+            <input class="azad_color" type="text" name="azad_nice_scroll_plugin_settings[cursor_color]" value="<?php echo $settings; ?>"/>
         <?php }
         public function azad_nice_scroll_bg_color_field(){ 
             $settings = $this->azad_nice_scroll_get_plugin_settings('bg_color');
@@ -98,10 +105,16 @@ if(! class_exists('Azad_Admin')){
             <input class="" type="number" min="1" step="1" max="10" name="azad_nice_scroll_plugin_settings[cursor_width]" value="<?php echo $settings; ?>"/>
         <?php }
         public function azad_nice_scroll_hide_cursor_delay_field(){ 
-            $settings = $this->azad_nice_scroll_get_plugin_settings('cursor_width');
+            $settings = $this->azad_nice_scroll_get_plugin_settings('cursor_widthd');
         ?>
-            <input class="" type="number" min="1" step="1" max="10" name="azad_nice_scroll_plugin_settings[cursor_width]" value="<?php echo $settings; ?>"/>
+            <input class="" type="number" min="1" step="1" max="10" name="azad_nice_scroll_plugin_settings[cursor_widthasd]" value="<?php echo $settings; ?>"/>
         <?php }
+        public function azad_nice_scroll_cursor_border_radius_field(){ 
+            $settings = $this->azad_nice_scroll_get_plugin_settings('cursor_border_radius');
+        ?>
+            <input class="" type="number" min="1" step="1" max="6" name="azad_nice_scroll_plugin_settings[cursor_border_radius]" value="<?php echo $settings; ?>"/>
+        <?php }
+
         public function azad_nice_scroll_display(){
             require_once(plugin_dir_path(__FILE__).'/Azad_Display.php');
         }        
